@@ -12,6 +12,8 @@ struct ContentView: View {
 
     private var correctAnswer = Int.random(in: 0 ... 2)
 
+    private var score = 0
+
     var body: some View {
         ZStack {
             LinearGradient(
@@ -41,6 +43,12 @@ struct ContentView: View {
                                 .shadow(color: .black, radius: 2)
                         })
                 }
+
+                Text("Score: \(score)")
+                    .font(.largeTitle)
+                    .foregroundColor(.black)
+
+                Spacer()
             }
         }
     }
