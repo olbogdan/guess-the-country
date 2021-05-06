@@ -17,19 +17,29 @@ struct ContentView: View {
             LinearGradient(
                 gradient: Gradient(colors: [.black, .white]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
+            VStack(spacing: 30) {
                 VStack {
                     Text("Select flag:")
                     Text(countries[correctAnswer])
                         .fontWeight(.black)
                 }.foregroundColor(.white)
                     .font(.largeTitle)
+                    .padding()
 
                 ForEach(0 ..< 3) { number in
-                    Button(action: {}, label: {
-                        Image(self.countries[number])
-                            .frame(width: 250, height: 130)
-                    })
+                    Button(
+                        action: {
+                            //
+                        },
+                        label: {
+                            Image(self.countries[number])
+                                .frame(width: 250, height: 125)
+                                .clipShape(
+                                    RoundedRectangle(cornerRadius: 20)
+                                )
+                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
+                                .shadow(color: .black, radius: 2)
+                        })
                 }
             }
         }
